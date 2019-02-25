@@ -1,0 +1,40 @@
+Studenta: Fainarea Maria-Mihaela
+Grupa: 322CA
+Facultatea: Politehnica, Automatica si Calculatoare
+Sectia: Calculatoare si Tehnologia Informatiei
+Tema2: MiniCAD
+
+	Tema este implementata pe baza celor trei Pattern-uri : 
+	Singleton Pattern - ma ajuta pentru a instantia o singura data "fabrica de forme"
+	Factory Pattern - este un pattern realizat prin interfata IFactory care este
+ implementata de catre clasa Factory (fabrica de forme).
+			-ma ajuta pentru a crea pe baza numelui o anumita forma.
+	Visitor Pattern - este in stransa legatura cu cele doua de mai sus. Acest 
+pattern a fost baza constructiei temei. Am facut doua interfete Visitor si Visitable
+ si de la ele plecand am construit clasa care se afla pe post de vizitor: Drawer - clasa
+ ce implementeaza algoritmii necesari problemei in mai multe functii. Am ales sa fac asa
+ si nu sa fac mai multi vizitori din lejeritatea pe care am simtit-o implementand lucrurile 
+in acest fel. In acest drawer am chemat in fiecare functie "visit" algoritmii necesari 
+facerii conturului si colorarii formelor. Primul se afla implementat chiar in clasa Drawer
+ iar cel de-al doilea se afla intr-o clasa separata. FloodFill este clasa chemata in Drawer 
+pentru a colora formele.
+	FlodFIll contine un algoritm asemanatori unui backtracking in plan nerecursiv care 
+se ajuta pentru a stoca noii pixeli vizitati intr-o coada. Mai departe va folosi pixelii 
+din coada ca sa se poata deplasa pe cele 4 directii. Cand pixelii din coada nu mai au vecini
+ de vizitat algoritmul se opreste.
+	Bresenham algorithm a fost implementat in Drawer prin functia "bresenham".
+	Esenta programului se afla dupa citire in main prin crearea unui vector de forme 
+si asemeni oricarui algoritm de vizitor prin vizitarea fiecarei forme in parte printr-un "for".
+	Lucruri relevante de mentionat:
+	Clasa "Matrice" apare din cauza necesitatii de a pasa un obiect clasei FloodFill 
+si a putea ramane modificat caci este un trasnfer prin referinta.
+	Fiecare forma are o clasa in parte.
+	Clasa "Strategy" ma ajuta la Factory Pattern pentru a putea crea un nou obiect de 
+adaugat in vectorul de obiect pe baza numelui acestuia.
+	Clasa GetColor ma ajuta ca pe baza Stringului in hexaDecimal sa obtin un numar care
+ reprezinta RGB-ul.
+	Bug-urile rezolvate s-au centrat asupra ordinii de desenare a liniilor formelor si 
+asupra problemei ca pe dimensiuni foarte mari primeam StackOverflow daca implementam
+FloodFill recursiv.
+ In rest, lucrurile au decurs de la sine.
+	
